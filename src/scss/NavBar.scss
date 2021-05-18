@@ -1,0 +1,27 @@
+@import "./variables";
+
+header {
+  nav {
+    z-index: 1;
+    padding: 10px 40px;
+    #nav-title {
+      font-family: $cursive_font;
+      font-size: 50px;
+    }
+  }
+  nav.nav-transparent {
+    // opacity: 0.1;
+    background-color: rgba(0, 0, 0, 0.5);
+    filter: contrast(100%), brightness(100%);
+    #nav-title {
+      color: $theme_white;
+    }
+  }
+
+  nav.nav-primary {
+    background-color: $theme_white;
+    #nav-title {
+      color: black;
+    }
+  }
+}

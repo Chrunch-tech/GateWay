@@ -1,0 +1,16 @@
+@import "./variables";
+
+footer {
+  color: $theme_white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(248, 248, 255, 0.11);
+  padding: 50px;
+
+  span#footer-text {
+    font-family: $theme_font;
+    color: $theme_white;
+    font-size: 15px;
+  }
+}
