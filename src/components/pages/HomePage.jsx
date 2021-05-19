@@ -29,7 +29,7 @@ class HomePage extends Component {
               </div>
               <div className="btn-container">
                 <a
-                  href="#"
+                  href="/search"
                   id="get_started_btn"
                   className="btn"
                   onMouseEnter={() => {
