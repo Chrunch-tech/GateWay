@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "../Navbar.jsx";
+import Footer from "../Footer.jsx";
 import "../../scss/HomePage.scss";
 
 class HomePage extends Component {
@@ -9,7 +10,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div id="home-page-container">
         <div
           id="background"
           style={{
@@ -47,7 +48,8 @@ class HomePage extends Component {
             </div>
           </section>
         </div>
-      </React.Fragment>
+        <Footer />
+      </div>
     );
   }
 }

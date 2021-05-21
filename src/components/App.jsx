@@ -1,33 +1,29 @@
 import React, { Component } from "react";
 import HomePage from "./pages/HomePage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
-import Footer from "./Footer.jsx";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   state = {
     pages: [
-      { component: <HomePage key={0} />, route: "/" },
-      { component: <SearchPage key={1} />, route: "/search" },
+      { component: HomePage, route: "/", id: 0 },
+      { component: SearchPage, route: "/search", id: 1 },
     ],
   };
 
   render() {
     return (
-      <React.Fragment>
-        <div className="App">
-          <Router>
-            <Switch>
-              {this.state.pages.map((page) => (
-                <Route exact path={page.route}>
-                  {page.component}
-                </Route>
-              ))}
-            </Switch>
-          </Router>
-        </div>
-        <Footer />
-      </React.Fragment>
+      <div className="App">
+        <Router>
+          <Switch>
+            {this.state.pages.map((page) => (
+              <Route exact path={page.route} key={page.id}>
+                {<page.component key={page.id} />}
+              </Route>
+            ))}
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }

@@ -1,0 +1,105 @@
+@import "./variables.scss";
+
+nav {
+  #logo-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  li,
+  ul,
+  a {
+    color: $theme_black;
+    z-index: 1;
+  }
+}
+
+#search-page-header {
+  position: relative;
+  overflow: hidden;
+}
+
+main {
+  section#hero-section {
+    background: $theme_color;
+    display: flex;
+    justify-content: space-between;
+    height: 436px;
+
+    #left-hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 30px;
+      #header-card {
+        width: 500px;
+        height: 350px;
+        display: flex;
+        background: $theme_black;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0px 4px 4px $theme_white;
+
+        .card-content {
+          h1 {
+            color: $theme_color;
+            font-family: $theme_font;
+            font-size: 50px;
+            margin-top: 10px;
+            span {
+              font-size: 55px;
+            }
+          }
+          form {
+            div.text-box-container {
+              background-color: $theme_white;
+              border-radius: 100px;
+              height: 47px;
+              display: flex;
+              justify-content: center space-between;
+              align-items: center;
+              margin-top: 40px;
+              input {
+                padding: 10px;
+                border-radius: 100px;
+                border: none;
+                outline: none;
+                font-family: $theme_font;
+              }
+              button {
+                background-color: $theme_color;
+                border: none;
+                cursor: pointer;
+                padding: 10px 30px;
+                margin-left: 20px;
+                border-radius: 100px;
+              }
+            }
+          }
+        }
+      }
+    }
+    #right-hero-section {
+      background-color: $theme_white;
+      width: 905px;
+      height: 780px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translate(x, y);
+      z-index: 0;
+      border-radius: 50%;
+      position: absolute;
+      top: -70px;
+      left: 48%;
+      img {
+        width: 567px;
+        height: 480px;
+      }
+    }
+  }
+}

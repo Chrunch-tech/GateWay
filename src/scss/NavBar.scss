@@ -8,10 +8,16 @@ header {
       font-family: $cursive_font;
       font-size: 50px;
     }
+    .left-side,
+    .right-side {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
+
   nav.nav-transparent {
-    // opacity: 0.1;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(36, 42, 54, 0.5);
     filter: contrast(100%), brightness(100%);
     #nav-title {
       color: $theme_white;
@@ -19,9 +25,31 @@ header {
   }
 
   nav.nav-primary {
-    background-color: $theme_white;
+    background-color: $theme_color;
+    display: flex;
+    justify-content: space-between;
+
     #nav-title {
-      color: black;
+      color: $theme_black;
+    }
+
+    #logo-img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      font-family: $theme_font;
+      color: $theme_black;
     }
   }
 }
