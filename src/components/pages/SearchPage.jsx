@@ -4,6 +4,16 @@ import Card from "../card";
 import "../../scss/SearchPage.scss";
 
 class SearchPage extends Component {
+  state = { query: "" };
+
+  set_qurey = (q) => {
+    this.setState({ query: q.target.value });
+  };
+
+  handle_form_submit = (event) => {
+    this.hendle_qurey(event);
+  };
+
   render() {
     return (
       <div id="search-page-container">
@@ -25,8 +35,16 @@ class SearchPage extends Component {
                       </h1>
                       <form onSubmit={this.handle_form_submit}>
                         <div className="text-box-container">
-                          <input type="text" placeholder="Search" />
-                          <button className="icon-btn">
+                          <input
+                            type="text"
+                            placeholder="Search"
+                            name="search"
+                            onChange={this.set_qurey}
+                          />
+                          <button
+                            className="icon-btn"
+                            onClick={this.handle_form_submit}
+                          >
                             <img src="./assets/search.svg" alt="search-icon" />
                           </button>
                         </div>
@@ -40,13 +58,24 @@ class SearchPage extends Component {
               </section>
             </main>
           </div>
+          <div id="search-page-bottom">
+            <h2>Some popular places</h2>
+            <hr />
+          </div>
         </div>
       </div>
     );
   }
 
-  handle_form_submit() {
-    console.log("Submit");
+  hendle_qurey(event) {
+    event.preventDefault();
+    fetch("http://localhost:3001/unsplash-proxy&qurey=get_random_photo").then(
+      (result) => {
+        result.json().then((data) => {
+          console.log(data);
+        });
+      }
+    );
   }
 }
 
