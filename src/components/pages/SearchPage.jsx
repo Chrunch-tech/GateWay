@@ -106,32 +106,6 @@ class SearchPage extends Component {
     });
   }
 
-  clean_fetched_data() {
-    let cleaned_data = [];
-    this.state.popular_places_data.map((data) => {
-      const img_url = data.urls.small;
-      let discryption = data.description + ", " + data.alt_description;
-      let title = "";
-      for (let tag of data.tags) {
-        title = title + " " + tag.title;
-      }
-      if (!title) {
-        title = "No title";
-      }
-      if (discryption.length > 100) {
-        discryption = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Et odit a,
-        pariatur dignissimos magni ducimus, sunt quod asperiores quisquam`;
-      }
-      cleaned_data.push({
-        title: title,
-        img_url: img_url,
-        discryption: discryption,
-      });
-    });
-    console.log(cleaned_data);
-    this.setState({ popular_places_data: cleaned_data });
-  }
-
   hendle_qurey(event) {
     event.preventDefault();
   }
