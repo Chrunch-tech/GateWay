@@ -57,7 +57,7 @@ main {
             div.text-box-container {
               background-color: $theme_white;
               border-radius: 100px;
-              height: 47px;
+              height: 46px;
               display: flex;
               justify-content: center space-between;
               align-items: center;
@@ -107,7 +107,14 @@ main {
 #search-page-bottom {
   font-family: $theme_font;
   padding: 50px;
+  // size: 100vh 100vh;
+  // overflow: hidden;
   h2 {
     margin-bottom: 10px;
+  }
+  div.cards-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }

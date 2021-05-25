@@ -1,10 +1,11 @@
 import { Component } from "react";
 import NavBar from "../Navbar.jsx";
-import Card from "../card";
+import Card from "../card/Card.jsx";
+import PrimaryCard from "../card/primary_card.jsx";
 import "../../scss/SearchPage.scss";
 
 class SearchPage extends Component {
-  state = { query: "" };
+  state = { query: "", popular_places_data: [] };
 
   set_qurey = (q) => {
     this.setState({ query: q.target.value });
@@ -15,6 +16,7 @@ class SearchPage extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div id="search-page-container">
         <div id="search-page">
@@ -28,7 +30,7 @@ class SearchPage extends Component {
             <main>
               <section id="hero-section">
                 <div id="left-hero-section">
-                  <Card id="header-card">
+                  <Card id="header-card" class_name="card">
                     <div className="card-content">
                       <h1>
                         Find your <br /> <span>distination</span>
@@ -42,7 +44,7 @@ class SearchPage extends Component {
                             onChange={this.set_qurey}
                           />
                           <button
-                            className="icon-btn"
+                            className="icon-gateway-btn"
                             onClick={this.handle_form_submit}
                           >
                             <img src="./assets/search.svg" alt="search-icon" />
@@ -61,21 +63,77 @@ class SearchPage extends Component {
           <div id="search-page-bottom">
             <h2>Some popular places</h2>
             <hr />
+            <div className="cards-container">
+              {this.state.popular_places_data.map((data) => (
+                <PrimaryCard
+                  title={data.title}
+                  img_url={data.img_url}
+                  discryption={data.discryption}
+                  button_title="Let's go"
+                  key={this.state.popular_places_data.indexOf(data)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
     );
   }
 
+  componentDidMount() {
+    fetch(
+      "http://localhost:3001/unsplash-proxy&query=get_random_places/null"
+    ).then((result) => {
+      result.json().then((responce) => {
+        let cleaned_data = [];
+        responce.map((data) => {
+          const img_url = data.urls.small;
+          let discryption = data.description + ", " + data.alt_description;
+          let title = "";
+          for (let tag of data.tags) {
+            title = title + " " + tag.title;
+          }
+          if (!title) {
+            title = "No title";
+          }
+          if (discryption.length > 100) {
+            discryption = discryption.slice(0, 100) + "...";
+          }
+          cleaned_data.push({ title: title, img_url: img_url, discryption });
+        });
+        this.setState({ popular_places_data: cleaned_data });
+      });
+    });
+  }
+
+  clean_fetched_data() {
+    let cleaned_data = [];
+    this.state.popular_places_data.map((data) => {
+      const img_url = data.urls.small;
+      let discryption = data.description + ", " + data.alt_description;
+      let title = "";
+      for (let tag of data.tags) {
+        title = title + " " + tag.title;
+      }
+      if (!title) {
+        title = "No title";
+      }
+      if (discryption.length > 100) {
+        discryption = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Et odit a,
+        pariatur dignissimos magni ducimus, sunt quod asperiores quisquam`;
+      }
+      cleaned_data.push({
+        title: title,
+        img_url: img_url,
+        discryption: discryption,
+      });
+    });
+    console.log(cleaned_data);
+    this.setState({ popular_places_data: cleaned_data });
+  }
+
   hendle_qurey(event) {
     event.preventDefault();
-    fetch("http://localhost:3001/unsplash-proxy&qurey=get_random_photo").then(
-      (result) => {
-        result.json().then((data) => {
-          console.log(data);
-        });
-      }
-    );
   }
 }
 

@@ -17,9 +17,10 @@ const api = create_api({ accessKey: process.env.ACCESS_KEY, fetch: fetch });
 
 // Creating the web server
 app.use(cors());
-app.get("/unsplash-proxy&qurey=:qurey", (req, res) => {
-  const qurey = req.params.qurey;
-  if (qurey === "get_random_photo") {
+app.get("/unsplash-proxy&query=:query/:page_on", (req, res) => {
+  const query = req.params.query;
+  const defined_page_on = req.params.page_on;
+  if (query === "get_random_photo") {
     const page_on = Math.floor(Math.random() * 10);
     api.search
       .getPhotos({ query: "beautiful places", page: page_on })
@@ -29,13 +30,32 @@ app.get("/unsplash-proxy&qurey=:qurey", (req, res) => {
           const response = result.response.results[photo_index];
           return res.send(response);
         } else {
-          res.send("error");
+          return res.send("error");
         }
       });
-  } else if (qurey === "get_random_places") {
-    // ...
+  } else if (query === "get_random_places") {
+    const page_on = Math.floor(Math.random() * 10);
+    api.search
+      .getPhotos({ query: "beautiful places", page: page_on })
+      .then((result) => {
+        if (result.type === "success") {
+          const response = result.response.results;
+          return res.send(response);
+        } else {
+          return res.send("error");
+        }
+      });
   } else {
-    // ...
+    api.search
+      .getPhotos({ query: query, page: defined_page_on })
+      .then((result) => {
+        if (result.type === "success") {
+          const response = result.response.results;
+          return res.send(response);
+        } else {
+          return res.send("error");
+        }
+      });
   }
 });
 

@@ -1,0 +1,42 @@
+@import "./variables";
+
+$card_width: 406px;
+$card_height: 528px;
+
+.primary-card {
+  width: $card_width;
+  height: $card_height;
+  margin-top: 20px;
+  div.card-content {
+    .img-container {
+      width: $card_width;
+      height: 250px;
+      border-radius: 25px;
+      background-size: cover;
+    }
+    .text-container {
+      padding: 20px;
+      h3 {
+        font-family: $theme_font;
+        text-transform: uppercase;
+      }
+      p {
+        margin-top: 10px;
+        font-family: $theme_font;
+      }
+    }
+    .gateway-btn-primary {
+      float: right;
+      background-color: $theme_color;
+      border: none;
+      cursor: pointer;
+      padding: 10px 30px;
+      margin-left: 20px;
+      font-family: $theme_font;
+      font-size: 20px;
+      border-radius: 100px;
+      margin: 10px;
+      text-transform: none;
+    }
+  }
+}
