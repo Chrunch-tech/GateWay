@@ -2,6 +2,7 @@ import { Component } from "react";
 import NavBar from "../Navbar.jsx";
 import Card from "../card/Card.jsx";
 import PrimaryCard from "../card/primary_card.jsx";
+import Footer from "../Footer.jsx";
 import "../../scss/SearchPage.scss";
 
 class SearchPage extends Component {
@@ -76,6 +77,7 @@ class SearchPage extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
