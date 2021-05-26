@@ -21,7 +21,7 @@ nav {
   overflow: hidden;
 }
 
-footer {
+footer#search-page-footer {
   background-color: rgb(30, 30, 36);
 }
 
@@ -87,7 +87,7 @@ main {
       }
     }
     #right-hero-section {
-      background-color: $theme_white;
+      background-color: white;
       width: 905px;
       height: 780px;
       display: flex;
@@ -113,6 +113,7 @@ main {
   padding: 50px;
   h2 {
     margin-bottom: 10px;
+    font-size: 35px;
   }
   div.cards-container {
     display: grid;

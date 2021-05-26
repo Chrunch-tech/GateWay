@@ -17,7 +17,6 @@ class SearchPage extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div id="search-page-container">
         <div id="search-page">
@@ -77,7 +76,7 @@ class SearchPage extends Component {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer _id="search-page-footer" />
       </div>
     );
   }
