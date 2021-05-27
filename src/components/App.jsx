@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import HomePage from "./pages/HomePage.jsx";
 import SearchPage from "./pages/SearchPage.jsx";
+import ResultPage from "./pages/ResultPage.jsx";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -8,6 +9,7 @@ class App extends Component {
     pages: [
       { component: HomePage, route: "/", id: 0 },
       { component: SearchPage, route: "/search", id: 1 },
+      { component: ResultPage, route: "/search&q=:qurey", id: 2 },
     ],
   };
 

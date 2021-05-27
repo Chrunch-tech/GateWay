@@ -1,0 +1,28 @@
+@import "./variables";
+
+form {
+  div.text-box-container {
+    background-color: $theme_white;
+    border-radius: 100px;
+    height: 46px;
+    display: flex;
+    justify-content: center space-between;
+    align-items: center;
+    margin-top: 40px;
+    input {
+      padding: 10px;
+      border-radius: 100px;
+      border: none;
+      outline: none;
+      font-family: $theme_font;
+    }
+    button {
+      background-color: $theme_color;
+      border: none;
+      cursor: pointer;
+      padding: 10px 30px;
+      margin-left: 20px;
+      border-radius: 100px;
+    }
+  }
+}
