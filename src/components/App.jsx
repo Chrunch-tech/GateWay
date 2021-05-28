@@ -9,7 +9,7 @@ class App extends Component {
     pages: [
       { component: HomePage, route: "/", id: 0 },
       { component: SearchPage, route: "/search", id: 1 },
-      { component: ResultPage, route: "/search&q=:qurey", id: 2 },
+      { component: ResultPage, route: "/search&q=:qurey/:page_on", id: 2 },
     ],
   };
 

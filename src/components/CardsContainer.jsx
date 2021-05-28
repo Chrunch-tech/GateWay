@@ -23,7 +23,6 @@ class CardsContainer extends Component {
   componentDidMount() {
     fetch(this.state.fetch_url).then((result) => {
       result.json().then((responce) => {
-        console.log(responce);
         let cleaned_data = [];
         responce.map((data) => {
           const img_url = data.urls.small;

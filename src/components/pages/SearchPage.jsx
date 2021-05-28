@@ -73,6 +73,9 @@ class SearchPage extends Component {
 
   hendle_qurey(event) {
     event.preventDefault();
+    if (this.state.query !== "") {
+      window.location.replace(`/search&q=${this.state.query}/${1}`);
+    }
   }
 }
 

@@ -39,8 +39,25 @@
     }
 
     .bottom-section {
-      margin-top: 235px;
+      margin-top: 200px;
       padding: 40px;
+    }
+  }
+
+  div.pagination-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    nav {
+      li {
+        button {
+          background-color: $theme_color;
+          font-family: $theme_font;
+          color: $theme_black;
+        }
+      }
     }
   }
 

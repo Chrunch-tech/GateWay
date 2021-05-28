@@ -7,6 +7,7 @@ class SearchForm extends Component {
     on_change: this.props.on_change,
     on_click: this.props.on_click,
     input_value: this.props.input_value,
+    _id: this.props._id,
   };
   render() {
     return (
@@ -18,9 +19,10 @@ class SearchForm extends Component {
             name="search"
             value={this.state.input_value}
             onChange={this.state.on_change}
+            id={this.state._id}
           />
           <button className="icon-gateway-btn" onClick={this.state.on_click}>
-            <img src="./assets/search.svg" alt="search-icon" />
+            <img src="/assets/search.svg" alt="search-icon" />
           </button>
         </div>
       </form>
