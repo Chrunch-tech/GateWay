@@ -7,8 +7,6 @@ import CardsContainer from "../CardsContainer.jsx";
 import "../../scss/ResultPage.scss";
 import Footer from "../Footer.jsx";
 import Pagination from "@material-ui/lab/Pagination/Pagination";
-// import Redirect from "react-router-dom";
-import { Redirect } from "react-router";
 
 class ResultPage extends Component {
   state = {
@@ -76,15 +74,6 @@ class ResultPage extends Component {
   componentDidMount() {
     const form = document.getElementById("result-page-form");
     form.value = this.props.match.params.qurey;
-    const result_query = this.state.result_query;
-    const page_on = this.state.page_on;
-    this.setState({
-      cards_container: (
-        <CardsContainer
-          fetch_url={`http://localhost:3001/unsplash-proxy&query=${result_query}/${page_on}`}
-        />
-      ),
-    });
   }
 
   hendle_qurey(event) {
@@ -99,7 +88,6 @@ class ResultPage extends Component {
       e.target.nodeName !== "svg" ||
       e.target.parentElement.getAttribute("aria-label") !== null
     ) {
-      console.log(e.target.nodeName);
       const page_on = parseInt(
         e.target.getAttribute("aria-label").match(/\d+/)[0]
       );
