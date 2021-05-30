@@ -63,6 +63,7 @@ class ResultPage extends Component {
             count={5}
             variant="outlined"
             shape="rounded"
+            page={parseInt(this.state.page_on)}
             onChange={this.call_hendle_pagination}
           />
         </div>
@@ -84,10 +85,8 @@ class ResultPage extends Component {
   }
 
   handle_pagination_changes(e) {
-    if (
-      e.target.nodeName !== "svg" ||
-      e.target.parentElement.getAttribute("aria-label") !== null
-    ) {
+    const is_page_on_button = /\d/.test(e.target.getAttribute("aria-label"));
+    if (is_page_on_button) {
       const page_on = parseInt(
         e.target.getAttribute("aria-label").match(/\d+/)[0]
       );
@@ -95,8 +94,22 @@ class ResultPage extends Component {
         `/search&q=${this.props.match.params.qurey}/${page_on}`
       );
     } else {
-      const arrow_function = e.target.parentElement.getAttribute("aria-label");
-      console.log(arrow_function);
+      const arrows =
+        e.target.parentElement.getAttribute("aria-label") !== null
+          ? e.target.parentElement.getAttribute("aria-label")
+          : e.target.getAttribute("aria-label");
+      console.log(arrows);
+      if (arrows === "Go to next page") {
+        const page_on = parseInt(this.state.page_on) + 1;
+        window.location.replace(
+          `/search&q=${this.props.match.params.qurey}/${page_on}`
+        );
+      } else if (arrows === "Go to previous page") {
+        const page_on = parseInt(this.state.page_on) - 1;
+        window.location.replace(
+          `/search&q=${this.props.match.params.qurey}/${page_on}`
+        );
+      }
     }
   }
 }
