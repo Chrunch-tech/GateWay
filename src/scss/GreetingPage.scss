@@ -1,0 +1,47 @@
+@import "./variables";
+
+.greeting-page-container {
+  .greeting-page {
+    #header {
+      header {
+        nav {
+          a {
+            font-family: $cursive_font;
+            font-size: 50px;
+          }
+        }
+      }
+    }
+    #bottom-container {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      div#bottom {
+        width: 100vh;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        #header-card {
+          width: 787px;
+          height: 479px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $theme_black;
+          h1 {
+            font-family: $theme_font;
+            color: $theme_white;
+            font-size: 50px;
+            line-height: 72px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+  footer#greeting-page-footer {
+    background-color: rgb(30, 30, 36);
+  }
+}

@@ -10,7 +10,7 @@ import Pagination from "@material-ui/lab/Pagination/Pagination";
 
 class ResultPage extends Component {
   state = {
-    qurey: "",
+    qurey: this.props.match.params.qurey,
     page_on: this.props.match.params.page_on,
     cards_container: null,
     redirect_url: null,
@@ -27,12 +27,6 @@ class ResultPage extends Component {
   call_hendle_pagination = (e) => {
     this.handle_pagination_changes(e);
   };
-
-  render_cards_container = () => (
-    <CardsContainer
-      fetch_url={`http://localhost:3001/unsplash-proxy&query=${this.state.result_query}/${this.state.page_on}`}
-    />
-  );
 
   render() {
     return (
@@ -60,7 +54,7 @@ class ResultPage extends Component {
 
         <div className="pagination-container">
           <Pagination
-            count={5}
+            count={10}
             variant="outlined"
             shape="rounded"
             page={parseInt(this.state.page_on)}

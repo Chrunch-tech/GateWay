@@ -22,7 +22,11 @@ class PrimaryCard extends Component {
             <h3>{this.state.title}</h3>
             <p>{this.state.discryption}</p>
           </div>
-          <Button variant="contained" className="gateway-btn-primary">
+          <Button
+            variant="contained"
+            className="gateway-btn-primary"
+            href="/greeting"
+          >
             {this.state.button_title}
           </Button>
         </div>
