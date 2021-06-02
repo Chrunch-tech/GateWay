@@ -1,0 +1,14 @@
+@import "./variables";
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $theme_black;
+  height: 100px;
+
+  span#footer-text {
+    font-family: $theme_font;
+    color: $theme_white;
+  }
+}

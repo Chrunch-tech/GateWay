@@ -63,7 +63,7 @@ class SearchPage extends Component {
           <div id="search-page-bottom">
             <h2>Some popular places</h2>
             <hr />
-            <CardsContainer fetch_url="http://localhost:3001/unsplash-proxy&query=get_random_places/null" />
+            <CardsContainer fetch_url="/unsplash-proxy&query=get_random_places/null" />
           </div>
         </div>
         <Footer _id="search-page-footer" />

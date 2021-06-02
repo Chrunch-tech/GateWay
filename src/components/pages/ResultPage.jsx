@@ -47,7 +47,7 @@ class ResultPage extends Component {
           </div>
           <div className="bottom-section">
             <CardsContainer
-              fetch_url={`http://localhost:3001/unsplash-proxy&query=${this.props.match.params.qurey}/${this.state.page_on}`}
+              fetch_url={`/unsplash-proxy&query=${this.props.match.params.qurey}/${this.state.page_on}`}
             />
           </div>
         </div>
@@ -92,7 +92,6 @@ class ResultPage extends Component {
         e.target.parentElement.getAttribute("aria-label") !== null
           ? e.target.parentElement.getAttribute("aria-label")
           : e.target.getAttribute("aria-label");
-      console.log(arrows);
       if (arrows === "Go to next page") {
         const page_on = parseInt(this.state.page_on) + 1;
         window.location.replace(
